@@ -1,0 +1,150 @@
+
+alias root='root -l'
+alias l='ls -lhArF'
+alias grip='grep -i'
+alias la='ls -A'
+alias ll='ls -lhrF'
+alias cb='cd ..'
+alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+alias add="source ~/.start_agent.sh"
+alias vit='vim -c TlistToggle'
+alias ui1='ssh swertz@ingrid-ui1.cism.ucl.ac.be -X'
+alias ui2='ssh swertz@ingrid-ui2.cism.ucl.ac.be -X'
+alias ui3='ssh swertz@ingrid-ui3.cism.ucl.ac.be -Y'
+alias s02='ssh swertz@server02.fynu.ucl.ac.be'
+alias lxp='ssh swertz@lxplus.cern.ch'
+alias rdskcms='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 cerntscms.cern.ch'
+alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
+alias rdskcmsout='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 localhost:9999'
+alias fwdTkclust='ssh -l swertz -L 11080:localhost:11081 lxplus.cern.ch -t ssh -l swertz -D 11081 cmsusr'
+alias daq='wget http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg && display DAQstatusGre.jpg && rm -f DAQstatusGre.jpg'
+
+function swap() {
+  if (($# != 2)); then
+    echo "Function swap() takes exactly two arguments."
+    return
+  fi
+  mv $1 __temp__
+  mv $2 $1
+  mv __temp__ $2
+}
+
+# fif=Find in File (maik3531)
+# e.g. to search for the word 'pencil' in all documents of a given 
+# directory open a konsole, cd to the directory, and run: fif "pencil"
+function fif() {
+  find . -type f -print | xargs grep --color=auto "$1" 2> /dev/null
+}
+
+export PYTHONSTARTUP=~/.pythonrc
+export EDITOR=vim
+
+# Try to guess and correct spelling mistakes for cd
+shopt -s cdspell
+
+# Notify ending jobs when they finish
+set -o notify 
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+case $hostname in
+  ingrid*)
+    source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
+  cyclap*)
+    source $HOME/.dotfiles/resources/zsh/cyclap.zsh ;;
+  lxplus*)
+    source $HOME/.dotfiles/resources/zsh/lxplus.zsh ;;
+  # default: home PC
+  *)
+    source $HOME/.dotfiles/resources/zsh/perso.zsh ;;
+esac
+   
+### Default ZSHRC from oh-my-zsh
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=/home/sebastien/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"

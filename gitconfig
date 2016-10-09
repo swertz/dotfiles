@@ -1,0 +1,11 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Sébastien Wertz
+	email = sebastien.wertz@uclouvain.be
+[core]
+	editor = vim
+[merge]
+	tool = kdiff3
