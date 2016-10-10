@@ -44,11 +44,7 @@ export EDITOR=vim
 # Notify ending jobs when they finish
 set -o notify 
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-case $hostname in
+case $(hostname) in
   ingrid*)
     source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
   cyclap*)
@@ -66,12 +62,12 @@ esac
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/sebastien/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

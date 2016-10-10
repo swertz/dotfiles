@@ -1,5 +1,3 @@
-# .bashrc
-
 # Source global definitions
 # Should stay above all else!
 if [ -f /etc/bashrc ]; then
