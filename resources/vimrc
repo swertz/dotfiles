@@ -12,10 +12,31 @@ set ruler		" show the cursor position all the time
 filetype plugin indent on   " set indent according to file type
 set bs=indent,eol,start		" allow backspacing over everything in insert mode
 set ai			" always set autoindenting on
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2	" set indent length to 4 spaces
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4	" set indent length to 4 spaces
 set expandtab
+" set background=dark
+set number
+set showcmd
+set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+" Visually display matching braces
+set showmatch
+
+" Initially ignore cases in searches
+set ignorecase
+" Smart case searching. Case insensitive if all lowercase, but if you
+" provide uppercase it will force matching case
+set smartcase
+
+"TagList options
+let Tlist_Exit_OnlyWindow = 1
+
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -68,15 +89,3 @@ endif
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
-
-" Personal choices:
-" set background=dark
-set number
-set showcmd
-set mouse=a
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
-end
-

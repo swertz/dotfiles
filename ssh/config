@@ -1,0 +1,48 @@
+# to avoid disconnecting
+
+Host *
+	ServerAliveInterval 60
+	ServerAliveCountMax 5
+	
+# alias for user
+
+Host *.ucl.ac.be
+	User swertz
+
+Host server02
+	User swertz
+	Hostname server02.fynu.ucl.ac.be
+
+Host ingrid
+	User swertz
+	Hostname ingrid-ui1.cism.ucl.ac.be
+
+Host ingrid2
+	User swertz
+	Hostname ingrid-ui2.cism.ucl.ac.be
+
+Host ingrid3
+	User swertz
+	Hostname ingrid-ui3.cism.ucl.ac.be
+
+Host lxplus
+	User swertz
+	Hostname lxplus.cern.ch
+
+Host *plus*.cern.ch
+	Protocol 2
+	PasswordAuthentication yes
+	PubkeyAuthentication no
+
+Host tbpc
+  User xtaldaq
+  Hostname admwks7.fynu.ucl.ac.be
+
+# proxy to get to ingrid, which is behind server02
+#Host ingrid-ui1.cism.ucl.ac.be
+#        User swertz
+#                ProxyCommand = ssh -x swertz@server02.fynu.ucl.ac.be nc ingrid-ui1.cism.ucl.ac.be 22
+#
+#Host ingrid-ui2.cism.ucl.ac.be
+#        User swertz
+#                ProxyCommand = ssh -x swertz@server02.fynu.ucl.ac.be nc ingrid-ui2.cism.ucl.ac.be 22

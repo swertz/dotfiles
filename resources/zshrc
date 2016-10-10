@@ -10,9 +10,11 @@ alias add="source ~/.start_agent.sh"
 alias vit='vim -c TlistToggle'
 alias ui1='ssh swertz@ingrid-ui1.cism.ucl.ac.be -X'
 alias ui2='ssh swertz@ingrid-ui2.cism.ucl.ac.be -X'
-alias ui3='ssh swertz@ingrid-ui3.cism.ucl.ac.be -Y'
+alias ui3='ssh swertz@ingrid-ui3.cism.ucl.ac.be -X'
 alias s02='ssh swertz@server02.fynu.ucl.ac.be'
 alias lxp='ssh swertz@lxplus.cern.ch'
+alias tbpc='ssh xtaldaq@admwks7.fynu.ucl.ac.be -X'
+alias home='ssh sebastien@109.129.89.54 -p 222 -X'
 alias rdskcms='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 cerntscms.cern.ch'
 alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
 alias rdskcmsout='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 localhost:9999'
@@ -38,9 +40,6 @@ function fif() {
 
 export PYTHONSTARTUP=~/.pythonrc
 export EDITOR=vim
-
-# Try to guess and correct spelling mistakes for cd
-shopt -s cdspell
 
 # Notify ending jobs when they finish
 set -o notify 
@@ -94,7 +93,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"

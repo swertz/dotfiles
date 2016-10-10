@@ -1,11 +1,25 @@
-[color]
-	diff = auto
-	status = auto
-	branch = auto
 [user]
-	name = Sébastien Wertz
+	name = Sebastien Wertz
 	email = sebastien.wertz@uclouvain.be
+	github = swertz
 [core]
 	editor = vim
 [merge]
-	tool = kdiff3
+	tool = meld
+[diff]
+	tool = meld
+[color]
+	ui = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	tree = log --oneline --graph
+	cm = checkout master
+[credential]
+	helper = cache
+[pull]
+	rebase = true
