@@ -7,10 +7,10 @@ fi
 alias aup='su -c "apt-get update && apt-get dist-upgrade"'
 alias ase='apt-cache search'
 alias r6='source ~/Soft/root/build_root/bin/thisroot.sh'
-alias bt='su -c "/home/sebastien/.reset_bluetooth"'
+alias bt='su -c "/home/sebastien/.reset_bluetooth.sh"'
 
-export PATH=$PATH:/usr/local/cuda-8.0/bin:/usr/lib64/nvidia-current/bin/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64:/usr/lib64/nvidia-current/
+export PATH=/usr/local/cuda-8.0/bin:/usr/lib64/nvidia-current/bin/:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:/usr/lib64/nvidia-current/:$LD_LIBRARY_PATH
 
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 export VIDYO_AUDIO_FRAMEWORK=ALSA
