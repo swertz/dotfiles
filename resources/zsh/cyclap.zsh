@@ -1,7 +1,7 @@
 # Source global definitions
 # Should stay above all else!
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+if [ -f /etc/zshrc ]; then
+	. /etc/zshrc
 fi
 
 # User specific aliases and functions

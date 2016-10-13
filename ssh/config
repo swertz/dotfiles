@@ -38,6 +38,12 @@ Host tbpc
   User xtaldaq
   Hostname admwks7.fynu.ucl.ac.be
 
+Host home
+  User sebastien
+  Hostname 85.201.6.126
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+
 # proxy to get to ingrid, which is behind server02
 #Host ingrid-ui1.cism.ucl.ac.be
 #        User swertz
