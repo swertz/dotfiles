@@ -20,7 +20,9 @@ for f in ${install_dir}/scripts/*; do
     install_link "$f" "$HOME/.$(basename "$f")"
 done
 
-install_link "${install_dir}/profile" "$HOME/.profile"
+for f in "profile" "gitconfig"; do
+    install_link "${install_dir}/$f" "$HOME/.$f"
+done
 
 if [ ! -d $HOME/.ssh ]; then mkdir $HOME/.ssh; fi
 install_link "${install_dir}/ssh/config" "$HOME/.ssh/config"
