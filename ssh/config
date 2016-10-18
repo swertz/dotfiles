@@ -35,14 +35,67 @@ Host *plus*.cern.ch
 	PubkeyAuthentication no
 
 Host tbpc
-  User xtaldaq
-  Hostname admwks7.fynu.ucl.ac.be
+    User xtaldaq
+    Hostname admwks7.fynu.ucl.ac.be
 
 Host home
-  User sebastien
-  Hostname 85.201.6.126
+    User sebastien
+    Hostname 85.201.6.126
+    PasswordAuthentication no
+	PubkeyAuthentication yes
+
+### CECI clusters ###
+
+Host lemaitre2
+    Hostname lemaitre2.cism.ucl.ac.be
+    User swertz
 	PasswordAuthentication no
 	PubkeyAuthentication yes
+    IdentityFile id_rsa.ceci
+
+Host nic4
+    Hostname nic4.segi.ulg.ac.be 
+    User swertz
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+    IdentityFile id_rsa.ceci
+
+Host vega
+    Hostname vega.ulb.ac.be
+    User swertz
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+    IdentityFile id_rsa.ceci
+
+Host hercules
+    Hostname hercules.ptci.unamur.be
+    User swertz
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+    IdentityFile id_rsa.ceci
+
+Host dragon1
+    Hostname dragon1.umons.ac.be
+    User swertz
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+    IdentityFile id_rsa.ceci
+
+Host hmem
+    Hostname hmem.cism.ucl.ac.be
+    User swertz
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+    IdentityFile id_rsa.ceci
+
+Host zenobe
+    User swertz
+    ProxyCommand = ssh swertz@hpc.cenaero.be nc zenobe 22
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+    IdentityFile id_rsa.ceci
+
+#######
 
 # proxy to get to ingrid, which is behind server02
 #Host ingrid-ui1.cism.ucl.ac.be
