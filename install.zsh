@@ -27,3 +27,4 @@ done
 if [ ! -d $HOME/.ssh ]; then mkdir $HOME/.ssh; fi
 install_link "${install_dir}/ssh/config" "$HOME/.ssh/config"
 
+install_link ${install_dir}/resources/zsh/agnoster-fast.zsh-theme $HOME/.oh-my-zsh/themes/
