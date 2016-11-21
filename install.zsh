@@ -12,7 +12,7 @@ function install_link {
 
 install_dir=$HOME/.dotfiles
 
-for f in ${install_dir}/resources/*rc; do
+for f in ${install_dir}/resources/*rc ${install_dir}/resources/*.conf; do
     install_link "$f" "$HOME/.$(basename "$f")"
 done
 

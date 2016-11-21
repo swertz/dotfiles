@@ -6,10 +6,10 @@
   else
     gStyle->SetPalette(54);
 
-  gROOT->SetStyle ("Plain");
+  gROOT->SetStyle("Plain");
   
-  gSystem->Load("libRooFit");
-  cout << "RooFit loaded." << endl;
+  //gSystem->Load("libRooFit");
+  //cout << "RooFit loaded." << endl;
 
   TString delphes = getenv("LD_LIBRARY_PATH");
   delphes += TString(":") + getenv("LIBRARY_PATH");

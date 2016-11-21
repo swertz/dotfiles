@@ -6,7 +6,7 @@ alias la='ls -A'
 alias ll='ls -lhrF'
 alias cb='cd ..'
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
-alias add="source ~/.start_agent.sh"
+alias add=". ~/.start_agent.sh"
 alias vit='vim -c TlistToggle'
 alias ui1='ssh swertz@ingrid-ui1.cism.ucl.ac.be -X'
 alias ui2='ssh swertz@ingrid-ui2.cism.ucl.ac.be -X'
@@ -47,10 +47,11 @@ set -o notify
 if [ -d $HOME/.local ]; then
     export PATH="$HOME/.local/bin:$PATH"
     export LD_LIBRARY_PATH="$HOME/.local/lib:$HOME/.local/lib64:$LD_LIBRARY_PATH"
+    export LD_RUN_PATH="$HOME/.local/lib:$HOME/.local/lib64:$LD_RUN_PATH"
     export C_INCLUDE_PATH="$HOME/.local/include:$C_INCLUDE_PATH"
     export CPLUS_INCLUDE_PATH="$HOME/.local/include:$CPLUS_INCLUDE_PATH"
     
-    export LDFLAGS="-L$HOME/.local/lib -L$HOME/.local/lib64"
+    export LIBRARY_PATH="$HOME/.local/lib:$HOME/.local/lib64:$LIBRARY_PATH"
 fi
 
 case $(hostname) in

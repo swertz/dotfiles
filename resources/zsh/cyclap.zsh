@@ -7,7 +7,7 @@ fi
 # User specific aliases and functions
 
 alias r6='source /home/swertz/.local/soft/root/builddir/bin/thisroot.sh'
-alias don='xrandr --output DP-1-1 --auto --right-of eDP1'
+alias don='xrandr --output DP-1-1 --auto --right-of eDP-1'
 alias doff='xrandr --output DP-1-1 --off'
 
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
