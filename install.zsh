@@ -20,7 +20,7 @@ for f in ${install_dir}/scripts/*; do
     install_link "$f" "$HOME/.$(basename "$f")"
 done
 
-for f in "profile" "gitconfig"; do
+for f in "gitconfig"; do
     install_link "${install_dir}/$f" "$HOME/.$f"
 done
 

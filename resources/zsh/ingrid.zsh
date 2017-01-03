@@ -10,7 +10,7 @@ alias cms_env="module purge; module load grid/grid_environment_sl6; module load 
 alias mem='cd /home/fynu/swertz/tests_MEM/MEMcpp'
 alias eft='cd /home/fynu/swertz/ttbar_effth_delphes/analyzer'
 alias store='cd /storage/data/cms/store/user/swertz/'
-alias llbb='cd ~/scratch/CMSSW_8_0_19/src/cp3_llbb/'
+alias llbb='cd ~/scratch/CMSSW_8_0_25/src/cp3_llbb/'
 
 export PYTHIA8=~/scratch/Pythia/pythia8212
 
