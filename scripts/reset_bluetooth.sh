@@ -5,11 +5,11 @@ function fix_bluetooth {
 	modprobe -rf ath3k
 	modprobe -rf btusb
 	sleep 5
-	rfkill block 1
+	rfkill block bluetooth
 	sleep 5
 	modprobe btusb
 	sleep 5
-	rfkill unblock 1
+	rfkill unblock bluetooth
 	bluetoothd -d
 }
 
