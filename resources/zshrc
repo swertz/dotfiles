@@ -11,6 +11,7 @@ alias vit='vim -c TlistToggle'
 alias ui1='ssh swertz@ingrid-ui1.cism.ucl.ac.be -X'
 alias ui2='ssh swertz@ingrid-ui2.cism.ucl.ac.be -X'
 alias ui3='ssh swertz@ingrid-ui3.cism.ucl.ac.be -X'
+alias ui8='ssh swertz@ingrid-ui8.cism.ucl.ac.be -X'
 alias s02='ssh swertz@server02.fynu.ucl.ac.be'
 alias lxp='ssh swertz@lxplus.cern.ch'
 alias tbpc='ssh xtaldaq@admwks7.fynu.ucl.ac.be -X'
@@ -59,7 +60,11 @@ function local_install() {
 }
 
 case $(hostname) in
-  ingrid*)
+  ingrid-ui1*)
+    source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
+  ingrid-ui2*)
+    source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
+  ingrid-ui3*)
     source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
   cyclap*)
     source $HOME/.dotfiles/resources/zsh/cyclap.zsh ;;
