@@ -8,6 +8,7 @@ alias aup='su -c "apt-get update && apt-get dist-upgrade"'
 alias ase='apt-cache search'
 alias r6='source ~/Soft/root/build_root/bin/thisroot.sh'
 alias bt='su -c "/home/sebastien/.reset_bluetooth.sh"'
+alias pip_upgrade="su -c \"pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U\""
 
 function nv {
     export PATH=/usr/local/cuda-8.0/bin:/usr/lib64/nvidia-current/bin/:$PATH

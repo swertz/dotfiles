@@ -9,6 +9,7 @@ fi
 alias r6='source /home/swertz/.local/soft/root/builddir/bin/thisroot.sh'
 alias don='xrandr --output DP-1-1 --auto --right-of eDP-1'
 alias doff='xrandr --output DP-1-1 --off'
+alias pip_upgrade='sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U'
 
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 export VIDYO_AUDIO_FRAMEWORK=ALSA

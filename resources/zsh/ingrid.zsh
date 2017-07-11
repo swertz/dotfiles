@@ -11,6 +11,7 @@ alias mem='cd /home/fynu/swertz/tests_MEM/MoMEMta'
 alias eft='cd /home/fynu/swertz/ttbar_effth_delphes/analyzer'
 alias store='cd /storage/data/cms/store/user/swertz/'
 alias llbb='cd ~/scratch/CMSSW_8_0_25/src/cp3_llbb/'
+alias pip_upgrade='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install --local -U'
 
 export PYTHIA8=~/scratch/Pythia/pythia8212
 
