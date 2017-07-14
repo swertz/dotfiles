@@ -21,6 +21,7 @@ alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
 alias rdskcmsout='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 localhost:9999'
 alias fwdTkclust='ssh -l swertz -L 11080:localhost:11081 lxplus.cern.ch -t ssh -l swertz -D 11081 cmsusr'
 alias daq='wget http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg && display DAQstatusGre.jpg && rm -f DAQstatusGre.jpg'
+alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16'
 
 function swap() {
   if (($# != 2)); then
