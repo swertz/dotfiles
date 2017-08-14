@@ -19,7 +19,7 @@ alias home='ssh sebastien@109.129.89.54 -p 222 -X'
 alias rdskcms='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 cerntscms.cern.ch'
 alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
 alias rdskcmsout='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 localhost:9999'
-alias fwdTkclust='ssh -l swertz -L 11080:localhost:11081 lxplus.cern.ch -t ssh -l swertz -D 11081 cmsusr'
+alias fwdTkclust='ssh -4 -t -L 9999:localhost:11010 swertz@lxplus.cern.ch ssh -4 -ND 11010 cmsusr'
 alias daq='wget http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg && display DAQstatusGre.jpg && rm -f DAQstatusGre.jpg'
 alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16'
 
