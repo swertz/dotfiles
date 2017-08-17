@@ -1,3 +1,61 @@
+set encoding=utf-8
+filetype off
+
+" change leader key
+let mapleader = " "
+
+"""" VUNDLE STUFF
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/plugin/')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+Plugin 'altercation/vim-colors-solarized'
+"Plugin 'lifepillar/vim-solarized8'
+
+" Plugin 'tmhedberg/SimpylFold' " Better code folding (doesn't work?)
+" let g:SimpylFold_docstring_preview = 1 " enable docstring preview in fold text
+" nnoremap <space> za " Enable folding with the spacebar
+
+Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
+
+Plugin 'Valloric/YouCompleteMe'
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gd :YcmCompleter GetDocImprecise<CR>
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+""""" END VUNDLE
+
+"python with virtualenv support
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Flag bad whitespaces (doesn't work for some reason)
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.cc,*.cpp,*.h,*.hpp match BadWhitespace /\s\+$/
+
+" ensure correct encoding
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
@@ -9,14 +67,15 @@ set viminfo='20,\"50	" read/write a .viminfo file, don't store more
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 
-filetype plugin indent on   " set indent according to file type
+"filetype plugin on
+"filetype plugin indent on   " set indent according to file type
+
 set bs=indent,eol,start		" allow backspacing over everything in insert mode
 set ai			" always set autoindenting on
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4	" set indent length to 4 spaces
 set expandtab
-" set background=dark
 set number
 set showcmd
 set mouse=a
@@ -74,11 +133,15 @@ endif
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
+    let python_highlight_all=1
+    let g:solarized_italic=1
+    let g:solarized_term_italics=1
+    syntax on
+    set background=light
+    colorscheme solarized
+    "colorscheme solarized8_light
+    set hlsearch
 endif
-
-filetype plugin on
 
 if &term=="xterm"
      set t_Co=8
