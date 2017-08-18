@@ -16,5 +16,8 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall
 pushd ~/.vim/plugin/YouCompleteMe
 ./install.py --clang-completer
+# Or on ingrid:
+#./install.py
 popd
+patch ~/.vim/plugin/vim-colors-solarized/colors/solarized.vim ~/.dotfiles/resources/patch_solarized.patch
 ```

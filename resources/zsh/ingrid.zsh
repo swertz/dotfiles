@@ -14,7 +14,12 @@ alias llbb='cd /home/ucl/cp3/swertz/scratch/CMSSW_8_0_25/src/cp3_llbb/'
 alias pip_upgrade='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install --local -U'
 alias setup='module load boost/1.57_sl6_gcc49; module load cmake/cmake-3.4.1; module load python/python27_sl6_gcc49'
 
-alias vim='$HOME/.local/nvim'
+if [[ -f $HOME/.local/bin/nvim ]]; then
+    alias vim='$HOME/.local/bin/nvim'
+    if [[ ! -L $HOME/.config/nvim/init.vim ]]; then
+        ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
+    fi
+fi
 
 export PYTHIA8=/home/ucl/cp3/swertz/scratch/Pythia/pythia8226/
 
