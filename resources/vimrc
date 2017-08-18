@@ -7,33 +7,63 @@ let mapleader = " "
 """" VUNDLE STUFF
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/plugin/')
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs' " NERDtree with tabs
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'lifepillar/vim-solarized8'
+Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'majutsushi/tagbar'
+Plugin 'jakedouglas/exuberant-ctags'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'Townk/vim-autoclose'
+
+"Plugin 'lifepillar/vim-solarized8' " bug
 
 " Plugin 'tmhedberg/SimpylFold' " Better code folding (doesn't work?)
 " let g:SimpylFold_docstring_preview = 1 " enable docstring preview in fold text
 " nnoremap <space> za " Enable folding with the spacebar
-
-Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
-
-Plugin 'Valloric/YouCompleteMe'
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>jl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gd :YcmCompleter GetDoc<CR>
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 """"" END VUNDLE
+
+" Nerdtree configuration
+let g:nerdtree_tabs_autoclose = 1
+let NERDTreeIgnore=['\.pyc$', '\~$'] " ignore files in NERDTree
+let NERDTreeMapOpenInTab='<ENTER>'
+map <C-n> <plug>NERDTreeTabsToggle<CR>
+
+" YCM configuration
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gd :YcmCompleter GetDoc<CR>
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Powerline configuration
+set laststatus=2 " otherwise doesn't show unless the screen is split
+
+" Tagbar configuration
+map <C-b> :Tagbar<CR>
+
+" Syntastic configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "python with virtualenv support
 "python3 << EOF
@@ -46,7 +76,7 @@ filetype plugin indent on    " required
 "EOF
 
 
-"split navigations
+" split tabs one-stroke navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -61,14 +91,9 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 endif
 
 set nocompatible	" Use Vim defaults (much better!)
-"set backup		" keep a backup file
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more
-			" than 50 lines of registers
+set viminfo='20,\"50	" read/write a .viminfo file, don't store more than 50 lines of registers
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
-
-"filetype plugin on
-"filetype plugin indent on   " set indent according to file type
 
 set bs=indent,eol,start		" allow backspacing over everything in insert mode
 set ai			" always set autoindenting on
@@ -79,13 +104,14 @@ set expandtab
 set number
 set showcmd
 set mouse=a
+set showmatch " Visually display matching braces
+set splitright " Open vsplit on the right
+
 if has("mouse_sgr")
     set ttymouse=sgr
 elseif !has('nvim')
     set ttymouse=xterm2
 end
-" Visually display matching braces
-set showmatch
 
 " Initially ignore cases in searches
 set ignorecase
@@ -95,6 +121,19 @@ set smartcase
 
 "TagList options
 let Tlist_Exit_OnlyWindow = 1
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+    let python_highlight_all=1
+    let g:solarized_italic=1
+    let g:solarized_term_italics=1
+    syntax on
+    set background=light
+    colorscheme solarized
+    "colorscheme solarized8_light
+    set hlsearch
+endif
 
 
 " Only do this part when compiled with support for autocommands
@@ -128,19 +167,6 @@ if has("cscope") && filereadable("/usr/bin/cscope")
       cs add $CSCOPE_DB
    endif
    set csverb
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-    let python_highlight_all=1
-    let g:solarized_italic=1
-    let g:solarized_term_italics=1
-    syntax on
-    set background=light
-    colorscheme solarized
-    "colorscheme solarized8_light
-    set hlsearch
 endif
 
 if &term=="xterm"
