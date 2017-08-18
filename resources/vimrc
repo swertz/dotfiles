@@ -26,7 +26,7 @@ Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
 Plugin 'Valloric/YouCompleteMe'
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gd :YcmCompleter GetDocImprecise<CR>
+nnoremap <leader>gd :YcmCompleter GetDoc<CR>
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " All of your Plugins must be added before the following line
