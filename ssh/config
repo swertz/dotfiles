@@ -1,53 +1,59 @@
-# to avoid disconnecting
+Protocol 2
 
 Host *
     ServerAliveInterval 60
     ServerAliveCountMax 5
-    
-# alias for user
+    ControlMaster auto
+    ControlPath ~/.ssh/cm_socket/%r@%h:%p
+    ControlPersist 1
 
-Host *.ucl.ac.be
-    User swertz
+## CERN ##
+
+## this helps with kerberos login to lxplus with recent OpenSSH
+## by making sure that all options are correctly applied
+CanonicalizeHostname yes
+CanonicalDomains cern.ch
+CanonicalizePermittedCNAMEs lxplus*.cern.ch:lxplus.cern.ch
+
+## username and kerberos authentication to CERN
+Host *.cern.ch
+  	User swertz
+  	GSSAPIAuthentication yes
+  	GSSAPIDelegateCredentials yes
+  	GSSAPITrustDns yes
+    PubkeyAuthentication no
+## trusted X11 (for ROOT GUI) and ssh-agent forwarding
+Host lx*.cern.ch
+  	ForwardAgent yes
+  	ForwardX11 yes
+  	ForwardX11Trusted yes
+Host lxplus
+  	HostName lxplus.cern.ch
+
+## UCL ##
+
+Host *.cism.ucl.ac.be
+  	User swertz
+  	IdentityFile ~/.ssh/id_rsa.ceci
+
+Host gwceci
+  	HostName gwceci.cism.ucl.ac.be
 
 Host server02
     User swertz
     Hostname server02.fynu.ucl.ac.be
 
 Host ingrid
-    User swertz
     Hostname ingrid-ui1.cism.ucl.ac.be
-    ForwardX11 yes
-    ForwardAgent yes
 
 Host ingrid2
-    User swertz
     Hostname ingrid-ui2.cism.ucl.ac.be
-    ForwardX11 yes
-    ForwardAgent yes
 
 Host ingrid3
-    User swertz
     Hostname ingrid-ui3.cism.ucl.ac.be
-    ForwardX11 yes
-    ForwardAgent yes
 
 Host ingrid8
-    User swertz
     Hostname ingrid-ui8.cism.ucl.ac.be
-    ForwardX11 yes
-    ForwardAgent yes
-    PasswordAuthentication no
-    PubkeyAuthentication yes
-
-Host lxplus
-    User swertz
-    Hostname lxplus.cern.ch
-
-Host *plus*.cern.ch
-    Protocol 2
-    PasswordAuthentication yes
-    PubkeyAuthentication no
-    ForwardX11 yes
 
 Host tbpc
     User xtaldaq
@@ -57,42 +63,28 @@ Host tbpc
 Host home
     User sebastien
     Hostname 85.201.6.126
-    PasswordAuthentication no
-    PubkeyAuthentication yes
-    ForwardX11 yes
+
+Host gwceci ingrid ingrid2 ingrid3 ingrid8 tbpc home
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
 
 ### CECI clusters ###
 
 Host lemaitre2
     Hostname lemaitre2.cism.ucl.ac.be
-    User swertz
-    PasswordAuthentication no
-    PubkeyAuthentication yes
-    ForwardX11 yes
-    IdentityFile id_rsa.ceci
 
 Host nic4
     Hostname nic4.segi.ulg.ac.be 
-    User swertz
-    PasswordAuthentication no
-    PubkeyAuthentication yes
-    ForwardX11 yes
-    IdentityFile id_rsa.ceci
 
 Host vega
     Hostname vega.ulb.ac.be
-    User swertz
-    PasswordAuthentication no
-    PubkeyAuthentication yes
-    ForwardX11 yes
-    IdentityFile id_rsa.ceci
 
 Host hercules
     Hostname hercules.ptci.unamur.be
     User swertz
     PasswordAuthentication no
     PubkeyAuthentication yes
-    ForwardX11 yes
     IdentityFile id_rsa.ceci
 
 Host dragon1
@@ -100,24 +92,13 @@ Host dragon1
     User swertz
     PasswordAuthentication no
     PubkeyAuthentication yes
-    ForwardX11 yes
     IdentityFile id_rsa.ceci
 
 Host hmem
     Hostname hmem.cism.ucl.ac.be
-    User swertz
-    PasswordAuthentication no
-    PubkeyAuthentication yes
-    ForwardX11 yes
-    IdentityFile id_rsa.ceci
 
 Host mback
     Hostname manneback.cism.ucl.ac.be
-    User swertz
-    PasswordAuthentication no
-    PubkeyAuthentication yes
-    ForwardX11 yes
-    IdentityFile id_rsa.ceci
 
 Host zenobe
     User swertz

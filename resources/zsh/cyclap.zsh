@@ -23,6 +23,6 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-ssh-add $HOME/.ssh/id_rsa.ceci </dev/null
-ssh-add $HOME/.ssh/id_rsa </dev/null
+ssh-add $HOME/.ssh/id_rsa.ceci </dev/null > /dev/null
+ssh-add $HOME/.ssh/id_rsa </dev/null > /dev/null
 
