@@ -11,9 +11,10 @@ Host *
 
 ## this helps with kerberos login to lxplus with recent OpenSSH
 ## by making sure that all options are correctly applied
-CanonicalizeHostname yes
-CanonicalDomains cern.ch
-CanonicalizePermittedCNAMEs lxplus*.cern.ch:lxplus.cern.ch
+## ... dos not work on SL6
+#CanonicalizeHostname yes
+#CanonicalDomains cern.ch
+#CanonicalizePermittedCNAMEs lxplus*.cern.ch:lxplus.cern.ch
 
 ## username and kerberos authentication to CERN
 Host *.cern.ch
