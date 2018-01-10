@@ -25,7 +25,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
 Plugin 'jakedouglas/exuberant-ctags'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'Townk/vim-autoclose'
+" Plugin 'Townk/vim-autoclose'
 
 "Plugin 'lifepillar/vim-solarized8' " bug
 
