@@ -2,7 +2,7 @@ set encoding=utf-8
 filetype off
 
 " change leader key
-let mapleader = " "
+let mapleader = ","
 
 """" VUNDLE STUFF
 " set the runtime path to include Vundle and initialize
@@ -18,7 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs' " NERDtree with tabs
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -26,6 +26,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'jakedouglas/exuberant-ctags'
 Plugin 'vim-syntastic/syntastic'
 " Plugin 'Townk/vim-autoclose'
+Plugin 'scrooloose/nerdcommenter'
 
 "Plugin 'lifepillar/vim-solarized8' " bug
 
@@ -66,6 +67,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_no_include_search = 1
+let g:syntastic_cpp_compiler_options = ' -std=c++1x'
+let g:syntastic_cpp_remove_include_errors = 1
 
 "python with virtualenv support
 "python3 << EOF
