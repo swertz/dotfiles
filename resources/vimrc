@@ -18,7 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs' " NERDtree with tabs
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -47,6 +47,8 @@ let NERDTreeMapOpenInTab='<ENTER>'
 map <C-n> <plug>NERDTreeTabsToggle<CR>
 
 " YCM configuration
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_goto_buffer_command = 'vertical-split'
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GetDoc<CR>
@@ -68,7 +70,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_no_include_search = 1
-let g:syntastic_cpp_compiler_options = ' -std=c++1x'
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_cpp_remove_include_errors = 1
 
 "python with virtualenv support
