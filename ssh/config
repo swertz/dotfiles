@@ -3,9 +3,9 @@ Protocol 2
 Host *
     ServerAliveInterval 60
     ServerAliveCountMax 5
-    ControlMaster auto
-    ControlPath ~/.ssh/cm_socket/%r@%h:%p
-    ControlPersist 1
+#    ControlMaster auto
+#    ControlPath ~/.ssh/cm_socket/%r@%h:%p
+#    ControlPersist 1
 
 ## CERN ##
 
