@@ -73,6 +73,12 @@ function local_install() {
     fi
 }
 
+correctROOTpdf () {
+        local tmpfilename="${1}__tmp" 
+        gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dQUIET -dPDFSETTINGS=/prepress -dUseCropBox -sOutputFile="${tmpfilename}" ${1} || return 1
+        mv "${tmpfilename}" "${1}"
+}
+
 
 case $(hostname) in
   ingrid-ui1*)
