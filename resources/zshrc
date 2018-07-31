@@ -21,7 +21,7 @@ alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
 alias rdskcmsout='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 localhost:9999'
 alias fwdTkclust='ssh -4 -t -L 9999:localhost:11010 swertz@lxplus.cern.ch ssh -4 -ND 11010 cmsusr'
 alias daq='wget http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg && display DAQstatusGre.jpg && rm -f DAQstatusGre.jpg'
-alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16'
+alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16 -x 130.104.1.234'
 
 function swap() {
   if (($# != 2)); then
@@ -87,7 +87,7 @@ case $(hostname) in
     source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
   ingrid-ui3*)
     source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
-  cyclap*)
+  swertz-cyclap*)
     source $HOME/.dotfiles/resources/zsh/cyclap.zsh ;;
   lxplus*)
     source $HOME/.dotfiles/resources/zsh/lxplus.zsh ;;
