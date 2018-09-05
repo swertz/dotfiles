@@ -31,6 +31,19 @@ Host lx*.cern.ch
 Host lxplus
   	HostName lxplus.cern.ch
 
+## PSI ##
+
+Host *.psi.ch
+    User swertz
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+    PasswordAuthentication no
+    PubkeyAuthentication yes
+
+Host psi
+    Hostname t3ui03.psi.ch
+
 ## UCL ##
 
 Host *.cism.ucl.ac.be
