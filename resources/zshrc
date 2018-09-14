@@ -8,20 +8,24 @@ alias cb='cd ..'
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 alias add=". ~/.start_agent.sh"
 alias vit='vim -c TlistToggle'
+
 alias ui1='ssh swertz@ingrid-ui1.cism.ucl.ac.be -X'
 alias ui2='ssh swertz@ingrid-ui2.cism.ucl.ac.be -X'
 alias ui3='ssh swertz@ingrid-ui3.cism.ucl.ac.be -X'
 alias ui8='ssh swertz@ingrid-ui8.cism.ucl.ac.be -X'
 alias s02='ssh swertz@server02.fynu.ucl.ac.be'
+alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16 -x 130.104.1.234'
+
 alias lxp='ssh swertz@lxplus.cern.ch'
-alias tbpc='ssh xtaldaq@admwks7.fynu.ucl.ac.be -X'
-alias home='ssh sebastien@109.129.89.54 -p 222 -X'
+
 alias rdskcms='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 cerntscms.cern.ch'
 alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
 alias rdskcmsout='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 localhost:9999'
 alias fwdTkclust='ssh -4 -t -L 9999:localhost:11010 swertz@lxplus.cern.ch ssh -4 -ND 11010 cmsusr'
+
 alias daq='wget http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg && display DAQstatusGre.jpg && rm -f DAQstatusGre.jpg'
-alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16 -x 130.104.1.234'
+
+alias psi='ssh psi'
 
 function swap() {
   if (($# != 2)); then
@@ -91,6 +95,8 @@ case $(hostname) in
     source $HOME/.dotfiles/resources/zsh/cyclap.zsh ;;
   lxplus*)
     source $HOME/.dotfiles/resources/zsh/lxplus.zsh ;;
+  t3ui0*)
+    source $HOME/.dotfiles/resources/zsh/psi.zsh ;;
   # default: home PC
   *)
     source $HOME/.dotfiles/resources/zsh/perso.zsh ;;
