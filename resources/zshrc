@@ -77,10 +77,14 @@ function local_install() {
     fi
 }
 
-correctROOTpdf () {
+function correctROOTpdf () {
         local tmpfilename="${1}__tmp" 
         gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dQUIET -dPDFSETTINGS=/prepress -dUseCropBox -sOutputFile="${tmpfilename}" ${1} || return 1
         mv "${tmpfilename}" "${1}"
+}
+
+function listBranches() {
+    python -c $'import ROOT as R\nf=R.TFile.Open("'$1$'")\nt=f.Get("'$2$'")\nl = [ b.GetName() for b in t.GetListOfBranches() ]\nfor b in l: print(b)' | sort
 }
 
 
