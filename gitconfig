@@ -23,3 +23,5 @@
 	helper = cache
 [pull]
 	rebase = true
+[http]
+	emptyAuth = true

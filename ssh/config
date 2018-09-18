@@ -17,7 +17,7 @@ Host *
 #CanonicalizePermittedCNAMEs lxplus*.cern.ch:lxplus.cern.ch
 
 ## username and kerberos authentication to CERN
-Host *.cern.ch
+Host lx*.cern.ch
   	User swertz
   	GSSAPIAuthentication yes
   	GSSAPIDelegateCredentials yes
