@@ -18,12 +18,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs' " NERDtree with tabs
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
-Plugin 'jakedouglas/exuberant-ctags'
+Plugin 'universal-ctags/ctags'
 Plugin 'vim-syntastic/syntastic'
 " Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdcommenter'
@@ -186,3 +186,10 @@ endif
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
+
+" Fix problem with spurious letters appearing in konsole/nvim/ssh
+" set guicursor=
+
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+
