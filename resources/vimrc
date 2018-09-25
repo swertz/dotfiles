@@ -186,9 +186,11 @@ endif
 " http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
 
-" Fix problem with spurious letters appearing in konsole/nvim/ssh
-" set guicursor=
-
+" Fix home/end keys in tmux
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
+" syntastic in passive mode if cmssw is loaded
+if !empty($CMSSW_BASE)
+    let g:syntastic_check_on_open = 0
+endif
