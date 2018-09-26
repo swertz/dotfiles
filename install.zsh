@@ -15,6 +15,7 @@ install_dir=$HOME/.dotfiles
 for f in ${install_dir}/resources/*rc ${install_dir}/resources/*.conf; do
     install_link "$f" "$HOME/.$(basename "$f")"
 done
+install_link ${install_dir}/resources/zsh/zlogout $HOME/.zlogout
 
 for f in ${install_dir}/scripts/*; do
     install_link "$f" "$HOME/.$(basename "$f")"
@@ -28,3 +29,4 @@ if [ ! -d $HOME/.ssh ]; then mkdir $HOME/.ssh; fi
 install_link "${install_dir}/ssh/config" "$HOME/.ssh/config"
 
 install_link ${install_dir}/resources/zsh/agnoster-fast.zsh-theme $HOME/.oh-my-zsh/themes/
+

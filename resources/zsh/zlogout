@@ -1,0 +1,4 @@
+case $(hostname) in
+    lxplus*)
+        hostname > "${HOME}/.last_lxplus_node" ;;
+esac

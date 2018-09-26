@@ -20,6 +20,18 @@ function klxp() {
     kinit -k -t ~/.kerberos/swertz.keytab swertz@CERN.CH
     ssh swertz@lxplus0$1.cern.ch
 }
+function slxp() {
+    local nodename="lxplus.cern.ch"
+    if [[ -f "${HOME}/.last_lxplus_node" ]]; then
+        nodename=$(cat "${HOME}/.last_lxplus_node")
+    fi
+    kinit -k -t ~/.kerberos/swertz.keytab swertz@CERN.CH
+    ssh "${nodename}"
+    scp -q "${nodename}:~/.last_lxplus_node" "${HOME}/.last_lxplus_node.new"
+    if [[ ( -f "${HOME}/.last_lxplus_node.new" ) && ( -n $(cat "${HOME}/.last_lxplus_node.new") ) ]]; then
+        mv "${HOME}/.last_lxplus_node.new" "${HOME}/.last_lxplus_node"
+    fi
+}
 
 alias rdskcms='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 cerntscms.cern.ch'
 alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
