@@ -12,3 +12,13 @@ if [[ -f $HOME/.local/bin/nvim ]]; then
     fi
 fi
 
+aklog
+
+function ktmux() {
+    keytab=~/.kerberos/swertz.keytab
+    if [[ -z "$1" ]]; then #if no argument passed
+        k5reauth -f -i 3600 -p $USER -k ${keytab} -- tmux new-session
+    else #pass the argument as the tmux session name
+        k5reauth -f -i 3600 -p $USER -k ${keytab} -- tmux new-session -s $1
+    fi
+}

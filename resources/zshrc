@@ -16,6 +16,10 @@ alias s02='ssh swertz@server02.fynu.ucl.ac.be'
 alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16 -x 130.104.1.234'
 
 alias lxp='ssh swertz@lxplus.cern.ch'
+function klxp() {
+    kinit -k -t ~/.kerberos/swertz.keytab swertz@CERN.CH
+    ssh swertz@lxplus0$1.cern.ch
+}
 
 alias rdskcms='rdesktop -a 16 -u swertz -d CERN -g 1920x1000 cerntscms.cern.ch'
 alias rdskinit='ssh -l swertz -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
@@ -82,6 +86,7 @@ function correctROOTpdf () {
         mv "${tmpfilename}" "${1}"
 }
 
+# listBranches file treename
 function listBranches() {
     python -c $'import ROOT as R\nf=R.TFile.Open("'$1$'")\nt=f.Get("'$2$'")\nl = [ b.GetName() for b in t.GetListOfBranches() ]\nfor b in l: print(b)' | sort
 }
