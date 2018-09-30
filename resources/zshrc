@@ -111,7 +111,7 @@ case $(hostname) in
     source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
   ingrid-ui3*)
     source $HOME/.dotfiles/resources/zsh/ingrid.zsh ;;
-  swertz-cyclap*)
+  swertz-thinkpad*)
     source $HOME/.dotfiles/resources/zsh/cyclap.zsh ;;
   lxplus*)
     source $HOME/.dotfiles/resources/zsh/lxplus.zsh ;;
