@@ -22,3 +22,7 @@ function ktmux() {
         pagsh.krb -c "kinit -k -t ${keytab} && tmux new-session $1"
     fi
 }
+
+
+alias py3="scl enable rh-python36 zsh"
+alias g7="scl enable devtoolset-7 zsh"

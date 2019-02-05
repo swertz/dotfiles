@@ -6,8 +6,8 @@ fi
 
 # User specific aliases and functions
 
-alias r6='source /home/swertz/.local/test/root/build_dir/bin/thisroot.sh'
-alias don='xrandr --output DP-1 --auto --above eDP-1'
+alias r6='source /home/swertz/.local/test/root-6.14.04/builddir/bin/thisroot.sh'
+alias don='xrandr --output DP-1 --auto --right-of eDP-1'
 alias doff='xrandr --output DP-1 --off'
 alias pip_upgrade='sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U'
 

@@ -15,13 +15,13 @@ alias ui8='ssh swertz@ingrid-ui8.cism.ucl.ac.be -X'
 alias s02='ssh swertz@server02.fynu.ucl.ac.be'
 alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16 -x 130.104.1.234'
 
-alias lxp='ssh swertz@lxplus.cern.ch'
+alias lxp='ssh swertz@lxplus7.cern.ch'
 function klxp() {
     kinit -k -t ~/.kerberos/swertz.keytab swertz@CERN.CH
     ssh swertz@lxplus0$1.cern.ch
 }
 function slxp() {
-    local nodename="lxplus.cern.ch"
+    local nodename="lxplus7.cern.ch"
     if [[ -f "${HOME}/.last_lxplus_node" ]]; then
         nodename=$(cat "${HOME}/.last_lxplus_node")
     fi
