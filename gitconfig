@@ -1,27 +1,28 @@
 [user]
-	name = Sebastien Wertz
-	email = sebastien.wertz@cern.ch
-	github = swertz
+    name = Sebastien Wertz
+    email = sebastien.wertz@cern.ch
+    github = swertz
 [core]
-	editor = vim
+    editor = vim
 [merge]
-	tool = meld
+    tool = meld
 [diff]
-	tool = meld
+    tool = meld
 [color]
-	ui = true
+    ui = true
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	tree = log --oneline --graph
-	cm = checkout master
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    tree = log --oneline --graph
+    cm = checkout master
+    rbm = rebase master
 [credential]
-	helper = cache
+    helper = cache
 [pull]
-	rebase = true
+    rebase = true
 [http]
-	emptyAuth = true
+    emptyAuth = true
