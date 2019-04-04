@@ -16,10 +16,15 @@ aklog
 
 function ktmux() {
     keytab=~/.kerberos/swertz.keytab
+    #if [[ -z "$1" ]]; then #if no argument passed
+        #pagsh.krb -c "kinit -k -t ${keytab} && tmux new-session"
+    #else #pass the argument as the tmux session name
+        #pagsh.krb -c "kinit -k -t ${keytab} && tmux new-session $1"
+    #fi
     if [[ -z "$1" ]]; then #if no argument passed
-        pagsh.krb -c "kinit -k -t ${keytab} && tmux new-session"
+        k5reauth -f -i 3600 -p swertz -k $keytab -- tmux new-session
     else #pass the argument as the tmux session name
-        pagsh.krb -c "kinit -k -t ${keytab} && tmux new-session $1"
+        k5reauth -f -i 3600 -p swertz -k $keytab -- tmux new-session -s $1
     fi
 }
 
