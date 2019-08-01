@@ -35,6 +35,8 @@ Host lx*.cern.ch lxplus
 
 Host psi
     Hostname t3ui03.psi.ch
+Host psi7
+    Hostname t3ui07.psi.ch
 
 Host *.psi.ch psi
     User swertz

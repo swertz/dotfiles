@@ -26,3 +26,5 @@
     rebase = true
 [http]
     emptyAuth = true
+[pager]
+	branch = false
