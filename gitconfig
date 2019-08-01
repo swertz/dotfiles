@@ -28,3 +28,5 @@
     emptyAuth = true
 [pager]
 	branch = false
+[push]
+	default = matching

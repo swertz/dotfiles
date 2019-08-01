@@ -24,8 +24,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
 Plugin 'universal-ctags/ctags'
-Plugin 'vim-syntastic/syntastic'
-" Plugin 'Townk/vim-autoclose'
+" Plugin 'vim-syntastic/syntastic'
+Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdcommenter'
 
 "Plugin 'lifepillar/vim-solarized8' " bug
@@ -65,9 +65,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_python_pylint_args = '--rcfile=$HOME/.pylintrc' 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
