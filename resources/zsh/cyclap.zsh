@@ -19,3 +19,10 @@ if [[ -d "$HOME/.local/bin" ]]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+function mountPSI() {
+    sshfs swertz@t3ui07.psi.ch:/t3home/swertz/swertz/ /media/psiwork
+    sshfs swertz@t3ui07.psi.ch:/t3home/swertz/ /media/psi
+}
+function mount14() {
+    sshfs local14chstack@fpixp1hc.cern.ch:/home/local14chstack /media/14ch
+}
