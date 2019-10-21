@@ -18,14 +18,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs' " NERDtree with tabs
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
-Plugin 'universal-ctags/ctags'
-" Plugin 'vim-syntastic/syntastic'
-Plugin 'Townk/vim-autoclose'
+Plugin 'universal-ctags/ctags' " not a plugin, needs to be compiled for tagbar to work
+ Plugin 'vim-syntastic/syntastic'
+Plugin 'Townk/vim-autoclose' " close parentheses, ...
 Plugin 'scrooloose/nerdcommenter'
 
 "Plugin 'lifepillar/vim-solarized8' " bug
@@ -49,6 +48,7 @@ map <C-n> <plug>NERDTreeTabsToggle<CR>
 " YCM configuration
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_goto_buffer_command = 'vertical-split'
+let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GetDoc<CR>
@@ -58,7 +58,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set laststatus=2 " otherwise doesn't show unless the screen is split
 
 " Tagbar configuration
-map <C-b> :Tagbar<CR>
+map <C-b> :TagbarToggle<CR>
 
 " Syntastic configuration
 set statusline+=%#warningmsg#
@@ -84,6 +84,15 @@ let g:syntastic_cpp_remove_include_errors = 1
 "  execfile(activate_this, dict(__file__=activate_this))
 "EOF
 
+
+" nerdcommenter
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+"This unsets the last search pattern highlighting
+nnoremap <CR> :noh<CR><CR>:<backspace>
 
 " split tabs one-stroke navigations
 nnoremap <C-J> <C-W><C-J>
@@ -127,9 +136,6 @@ set ignorecase
 " Smart case searching. Case insensitive if all lowercase, but if you
 " provide uppercase it will force matching case
 set smartcase
-
-"TagList options
-let Tlist_Exit_OnlyWindow = 1
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
