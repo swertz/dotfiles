@@ -1,3 +1,4 @@
+set nocompatible	" Use Vim defaults (much better!)
 set encoding=utf-8
 filetype off
 
@@ -21,17 +22,12 @@ Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'majutsushi/tagbar'
-Plugin 'universal-ctags/ctags' " not a plugin, needs to be compiled for tagbar to work
- Plugin 'vim-syntastic/syntastic'
-Plugin 'Townk/vim-autoclose' " close parentheses, ...
+if executable('ctags')
+    Plugin 'majutsushi/tagbar'
+endif
+Plugin 'universal-ctags/ctags' " not a plugin, needs to be compiled & installed for tagbar to work
+Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-
-"Plugin 'lifepillar/vim-solarized8' " bug
-
-" Plugin 'tmhedberg/SimpylFold' " Better code folding (doesn't work?)
-" let g:SimpylFold_docstring_preview = 1 " enable docstring preview in fold text
-" nnoremap <space> za " Enable folding with the spacebar
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,7 +61,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_python_pylint_args = '--rcfile=$HOME/.pylintrc' 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -74,16 +69,8 @@ let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_cpp_remove_include_errors = 1
 
-"python with virtualenv support
-"python3 << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
-
+let g:syntastic_python_checkers=['flake8', 'python3', 'python']
+let g:syntastic_python_flake8_args='--ignore=E128,E201,E202,E203,E231,E266,E501'
 
 " nerdcommenter
 " Align line-wise comment delimiters flush left instead of following code indentation
@@ -108,7 +95,6 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-set nocompatible	" Use Vim defaults (much better!)
 set viminfo='20,\"50	" read/write a .viminfo file, don't store more than 50 lines of registers
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
@@ -196,8 +182,3 @@ let &guicursor = &guicursor . ",a:blinkon0"
 " Fix home/end keys in tmux
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-
-" syntastic in passive mode if cmssw is loaded
-if !empty($CMSSW_BASE)
-    let g:syntastic_check_on_open = 0
-endif

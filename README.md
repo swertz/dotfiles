@@ -24,8 +24,8 @@ patch ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.dotfiles/resour
 
 Getting ssh agent to work *all the time* (requires `ksshaskpass` package and activated KDE wallet):
 ```
-echo "#!/bin/sh\nssh-add -q < /dev/null" > ~/.config/autostart/ssh.sh
-chmod +x ~/.config/autostart/ssh.sh
+echo "#!/bin/sh\nssh-add -q < /dev/null" > ~/.config/autostart-scripts/ssh.sh
+chmod +x ~/.config/autostart-scripts/ssh.sh
 mkdir -p ~/.config/plasma-workspace/env
 echo "#!/bin/sh\nexport SSH_ASKPASS=/usr/bin/ksshaskpass\nexport GIT_ASKPASS=/usr/bin/ksshaskpass" > ~/.config/plasma-workspace/env/askpass.sh
 chmod +x ~/.config/plasma-workspace/env/askpass.sh
