@@ -1,6 +1,10 @@
 set nocompatible	" Use Vim defaults (much better!)
 set encoding=utf-8
 filetype off
+let g:loaded_python_provider = 0
+if !empty($VIRTUAL_ENV)
+    let g:python3_host_prog = '/t3home/swertz/bambooDev/devvenv/bin/python3'
+endif
 
 " change leader key
 let mapleader = ","

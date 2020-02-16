@@ -3,7 +3,6 @@ if [ -f /etc/zshrc ]; then
 	. /etc/zshrc
 fi
 
-source /swshare/psit3/etc/profile.d/cms_ui_env.sh
 source $VO_CMS_SW_DIR/cmsset_default.sh
 alias crb='source /cvmfs/cms.cern.ch/crab3/crab.sh'
 
@@ -19,3 +18,5 @@ if [[ -f $HOME/.local/bin/nvim ]]; then
 fi
 
 export KRB5_CONFIG=$HOME/.dotfiles/resources/krb.conf
+
+local_paths
