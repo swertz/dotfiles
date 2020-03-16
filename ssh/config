@@ -16,6 +16,12 @@ Host *
 #CanonicalDomains cern.ch
 #CanonicalizePermittedCNAMEs lxplus*.cern.ch:lxplus.cern.ch
 
+Host cern00348
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+    PubkeyAuthentication yes
+
 ## username and kerberos authentication to CERN
 Host lxplus
   	HostName lxplus.cern.ch

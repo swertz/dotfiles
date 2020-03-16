@@ -20,7 +20,7 @@ if [[ -d "$HOME/.local/bin" ]]; then
 fi
 
 function mountPSI() {
-    sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 swertz@t3ui07.psi.ch:/t3home/swertz/ /media/psi
+    sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 swertz@t3ui03.psi.ch:/t3home/swertz/ /media/psi
 }
 function mount14() {
     sshfs  -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 local14chstack@fpixp1hc.cern.ch:/home/local14chstack /media/14ch
