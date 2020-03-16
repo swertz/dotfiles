@@ -19,6 +19,16 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs' " NERDtree with tabs
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/indentpython.vim' " Standard python indentation
+"if has('python3')
+    "if has('nvim')
+        "Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "else
+        "Plugin 'Shougo/deoplete.nvim'
+        "Plugin 'roxma/nvim-yarp'
+        "Plugin 'roxma/vim-hug-neovim-rpc'
+    "endif
+    "let g:deoplete#enable_at_startup = 1
+"endif
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -39,7 +49,7 @@ filetype plugin indent on    " required
 let g:nerdtree_tabs_autoclose = 1
 let NERDTreeIgnore=['\.pyc$', '\~$'] " ignore files in NERDTree
 let NERDTreeMapOpenInTab='<ENTER>'
-map <C-n> <plug>NERDTreeTabsToggle<CR>
+map <C-n> :NERDTreeToggle %<CR>
 
 " YCM configuration
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -56,6 +66,10 @@ set laststatus=2 " otherwise doesn't show unless the screen is split
 " Tagbar configuration
 map <C-b> :TagbarToggle<CR>
 
+" deoplete configuration
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Syntastic configuration
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -69,14 +83,17 @@ let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_cpp_remove_include_errors = 1
 
-let g:syntastic_python_checkers=['flake8', 'python3', 'python']
-let g:syntastic_python_flake8_args='--ignore=E128,E201,E202,E203,E231,E266,E501'
+let g:syntastic_python_checkers=['flake8', 'python3']
+let g:syntastic_python_flake8_args='--ignore=E116,E128,E201,E202,E203,E231,E266,E302,E303,E402,E501,F401,F841'
+let g:syntastic_quiet_messages = { "type": "style" }
 
 " nerdcommenter
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+let g:NERDRemoveExtraSpace = 1
+let g:NERDToggleCheckAllLines = 1
 
 "This unsets the last search pattern highlighting
 nnoremap <CR> :noh<CR><CR>:<backspace>
