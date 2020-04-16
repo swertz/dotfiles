@@ -86,6 +86,9 @@ prompt_context() {
 
 # Git: branch/detached head, dirty status
 prompt_git() {
+  if [[ "${NOGITPROMPT}" == "true" || $(pwd) == "/media"* ]]; then
+    return
+  fi
   (( $+commands[git] )) || return
   local PL_BRANCH_CHAR
   () {
