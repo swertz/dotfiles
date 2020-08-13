@@ -3,9 +3,10 @@ Protocol 2
 Host *
     ServerAliveInterval 60
     ServerAliveCountMax 5
-#    ControlMaster auto
-#    ControlPath ~/.ssh/cm_socket/%r@%h:%p
-#    ControlPersist 1
+    AddKeysToAgent yes
+    #ControlMaster auto
+    #ControlPath ~/.ssh/cm_socket/%r@%h:%p
+    #ControlPersist 1
 
 ## CERN ##
 
@@ -54,16 +55,23 @@ Host *.psi.ch psi
 
 ## UCL ##
 
-Host *.cism.ucl.ac.be gwceci ingrid ingrid2 ingrid3 ingrid8
+Host *ucl.ac.be
   	User swertz
-  	IdentityFile ~/.ssh/id_rsa.ceci
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    PasswordAuthentication no
+    PubkeyAuthentication yes
+
+Host *.cism.ucl.ac.be gwceci ingrid ingrid2 ingrid3 ingrid8
+  	IdentityFile ~swertz/.ssh/id_rsa.ceci
+
+Host server02
+    Hostname server02.fynu.ucl.ac.be
+  	IdentityFile ~swertz/.ssh/id_rsa
 
 Host gwceci
   	HostName gwceci.cism.ucl.ac.be
-
-Host server02
-    User swertz
-    Hostname server02.fynu.ucl.ac.be
 
 Host ingrid
     Hostname ingrid-ui1.cism.ucl.ac.be
@@ -77,19 +85,18 @@ Host ingrid3
 Host ingrid8
     Hostname ingrid-ui8.cism.ucl.ac.be
 
+Host ingrid*
+    ProxyCommand ssh gwceci -W %h:%p 2> /dev/null
+
+Host t2daq
+    User swertz
+    Hostname 130.104.48.63
+  	IdentityFile ~swertz/.ssh/id_rsa
+
 Host tbpc
     User xtaldaq
     Hostname admwks7.fynu.ucl.ac.be
     ForwardX11 yes
-
-Host home
-    User sebastien
-    Hostname 85.201.6.126
-
-Host gwceci ingrid ingrid2 ingrid3 ingrid8 tbpc home
-  ForwardAgent yes
-  ForwardX11 yes
-  ForwardX11Trusted yes
 
 ### CECI clusters ###
 

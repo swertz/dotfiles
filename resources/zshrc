@@ -8,14 +8,13 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 alias add=". ~/.start_agent.sh"
 alias vit='vim -c TlistToggle'
 
-alias ui1='ssh swertz@ingrid-ui1.cism.ucl.ac.be -X'
-alias ui2='ssh swertz@ingrid-ui2.cism.ucl.ac.be -X'
-alias ui3='ssh swertz@ingrid-ui3.cism.ucl.ac.be -X'
-alias ui8='ssh swertz@ingrid-ui8.cism.ucl.ac.be -X'
-alias s02='ssh swertz@server02.fynu.ucl.ac.be'
-alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16 -x 130.104.1.234'
-alias psi='ssh -YC4 psi'
-alias psi7='ssh -YC4 psi7'
+alias ui1='ssh ingrid'
+alias ui2='ssh ingrid2'
+alias ui3='ssh ingrid3'
+alias ui8='ssh ingrid8'
+alias s02='ssh server02'
+alias ucl='sshuttle -r swertz@gwceci.cism.ucl.ac.be 130.104.0.0/16 -x gwceci.cism.ucl.ac.be'
+alias psi='ssh -YC psi'
 alias fpix='ssh -Y local14chstack@fpixp1hc.cern.ch'
 alias bpix='ssh -Y bpix@blancanieves'
 
@@ -67,8 +66,14 @@ function fif() {
   find . -type f -print | xargs grep --color=auto "$1" 2> /dev/null
 }
 
+
+#### environment variables ####
+
 export PYTHONSTARTUP=~/.pythonrc
 export EDITOR=vim
+export KRB5_CONFIG=$HOME/.dotfiles/resources/krb.conf
+
+###############################
 
 # Notify ending jobs when they finish
 set -o notify 
