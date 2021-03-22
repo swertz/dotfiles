@@ -203,3 +203,8 @@ let &guicursor = &guicursor . ",a:blinkon0"
 " Fix home/end keys in tmux
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
+
+augroup filetypedetect
+    " associate *.FCMacro with python filetype
+    au BufRead,BufNewFile *.FCMacro setfiletype python
+augroup END

@@ -52,6 +52,7 @@ Host *.psi.ch psi
     ForwardAgent yes
     PasswordAuthentication no
     PubkeyAuthentication yes
+    GSSAPIAuthentication no
 
 ## UCL ##
 
@@ -91,12 +92,25 @@ Host ingrid*
 Host t2daq
     User swertz
     Hostname 130.104.48.63
-  	IdentityFile ~swertz/.ssh/id_rsa
+    IdentityFile ~swertz/.ssh/id_rsa
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+
+Host t2daqmini
+    User swertz
+    Hostname 130.104.48.26
+    IdentityFile ~swertz/.ssh/id_rsa
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
 
 Host tbpc
     User xtaldaq
     Hostname admwks7.fynu.ucl.ac.be
     ForwardX11 yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
 
 ### CECI clusters ###
 

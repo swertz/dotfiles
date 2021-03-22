@@ -20,9 +20,17 @@ fi
 
 source /opt/conda/etc/profile.d/conda.sh
 
-function mountPSI() {
-    sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 swertz@t3ui03.psi.ch:/t3home/swertz/ /media/psi
+alias mountPSI='sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,ConnectTimeout=2 swertz@t3ui03.psi.ch:/t3home/swertz/ /media/psi'
+alias mountLXP='sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,ConnectTimeout=2 swertz@lxplus.cern.ch:/afs/cern.ch/user/s/swertz/ /media/lxplus'
+alias mountUI1='sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,ConnectTimeout=2 ingrid-ui1:/home/users/s/w/swertz/ /media/ingrid'
+function mountAll() {
+    kini
+    mountPSI
+    mountLXP
+    mountUI1
 }
-function mount14() {
-    sshfs  -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 local14chstack@fpixp1hc.cern.ch:/home/local14chstack /media/14ch
+function unmountAll() {
+    fusermount -uz /media/ingrid
+    fusermount -uz /media/psi
+    fusermount -uz /media/lxplus
 }
