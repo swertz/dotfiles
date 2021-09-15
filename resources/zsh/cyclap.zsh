@@ -6,7 +6,7 @@ fi
 
 # User specific aliases and functions
 
-alias r6='source /home/swertz/.local/test/root-6.22.0/bin/thisroot.sh'
+alias r6='source /home/swertz/.local/test/ROOT/installdir/bin/thisroot.sh'
 alias don='xrandr --output DP-1 --auto --right-of eDP-1'
 alias doff='xrandr --output DP-1 --off'
 alias pip_upgrade='pip3 freeze --local | grep -v ^-e | cut -d = -f 1  | xargs pip3 install -U'

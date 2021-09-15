@@ -63,6 +63,7 @@ Host *ucl.ac.be
     ForwardX11Trusted yes
     PasswordAuthentication no
     PubkeyAuthentication yes
+    GSSAPIAuthentication no
 
 Host *.cism.ucl.ac.be gwceci ingrid ingrid2 ingrid3 ingrid8
   	IdentityFile ~swertz/.ssh/id_rsa.ceci
@@ -70,6 +71,7 @@ Host *.cism.ucl.ac.be gwceci ingrid ingrid2 ingrid3 ingrid8
 Host server02
     Hostname server02.fynu.ucl.ac.be
   	IdentityFile ~swertz/.ssh/id_rsa
+    GSSAPIAuthentication no
 
 Host gwceci
   	HostName gwceci.cism.ucl.ac.be
@@ -96,6 +98,7 @@ Host t2daq
     ForwardAgent yes
     ForwardX11 yes
     ForwardX11Trusted yes
+    GSSAPIAuthentication no
 
 Host t2daqmini
     User swertz
@@ -104,6 +107,7 @@ Host t2daqmini
     ForwardAgent yes
     ForwardX11 yes
     ForwardX11Trusted yes
+    GSSAPIAuthentication no
 
 Host tbpc
     User xtaldaq

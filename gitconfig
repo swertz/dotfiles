@@ -21,6 +21,11 @@
     cm = checkout master
     rbm = rebase master
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+    ack = grep --break --heading --line-number --color=auto
+[grep]
+    extendRegexp = true
+    lineNumber = true
+    color = auto
 [credential]
     helper = cache
 [pull]
