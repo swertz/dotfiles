@@ -118,6 +118,10 @@ function correctROOTpdf () {
 function listBranches() {
     python -c $'import ROOT as R\nf=R.TFile.Open("'$1$'")\nt=f.Get("'$2$'")\nl = [ b.GetName() for b in t.GetListOfBranches() ]\nfor b in l: print(b)' | sort
 }
+# ROOT get tree entries
+function getEntries() {
+    python -c $'import ROOT as R\nf=R.TFile.Open("'$1$'")\nt=f.Get("'$2$'")\nprint(t.GetEntries())'
+}
 
 # host-specific ZSH configuration
 case $(hostname) in
