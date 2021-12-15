@@ -89,7 +89,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_cpp_remove_include_errors = 1
 
 let g:syntastic_python_checkers=['flake8', 'python3']
-let g:syntastic_python_flake8_args='--ignore=E116,E128,E201,E202,E203,E231,E266,E302,E303,E402,E501,F401,F841'
+let g:syntastic_python_flake8_args='--ignore=B007,E116,E128,E201,E202,E203,E231,E266,E302,E303,E402,E501,F401,F841'
 let g:syntastic_quiet_messages = { "type": "style" }
 
 " nerdcommenter
