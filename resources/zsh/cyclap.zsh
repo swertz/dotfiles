@@ -6,9 +6,7 @@ fi
 
 # User specific aliases and functions
 
-alias r6='source /home/swertz/.local/test/ROOT/installdir/bin/thisroot.sh'
-alias don='xrandr --output DP-1 --auto --right-of eDP-1'
-alias doff='xrandr --output DP-1 --off'
+alias r6='conda activate root626'
 alias pip_upgrade='pip3 freeze --local | grep -v ^-e | cut -d = -f 1  | xargs pip3 install -U'
 
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
