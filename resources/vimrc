@@ -131,10 +131,13 @@ set shiftwidth=4
 set softtabstop=4	" set indent length to 4 spaces
 set expandtab
 set number
+set relativenumber " show relative line numbers
 set showcmd
 set mouse=a
 set showmatch " Visually display matching braces
 set splitright " Open vsplit on the right
+set list
+set listchars=tab:►\ ,trail:·
 
 if has("mouse_sgr")
     set ttymouse=sgr
