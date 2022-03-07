@@ -18,8 +18,6 @@ if [[ -d "$HOME/.local/bin" ]]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-source /opt/conda/etc/profile.d/conda.sh
-
 alias mountPSI='sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,ConnectTimeout=2 swertz@t3ui03.psi.ch:/t3home/swertz/ /media/psi'
 alias mountLXP='sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,ConnectTimeout=2 swertz@lxplus.cern.ch:/afs/cern.ch/user/s/swertz/ /media/lxplus'
 alias mountUI1='sshfs -o follow_symlinks,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,ConnectTimeout=2 ingrid-ui1:/home/users/s/w/swertz/ /media/ingrid'
