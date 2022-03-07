@@ -98,6 +98,7 @@ Host t2daq
     User swertz
     Hostname 130.104.48.63
     IdentityFile ~swertz/.ssh/id_rsa
+    ProxyJump server02
     ForwardAgent yes
     ForwardX11 yes
     ForwardX11Trusted yes
