@@ -94,9 +94,10 @@ Host ingrid8
 Host ingrid*
     ProxyCommand ssh gwceci -W %h:%p 2> /dev/null
 
-Host t2daq
+# clean room gateway
+Host crgw
     User swertz
-    Hostname 130.104.48.63
+    Hostname 130.104.48.26
     IdentityFile ~swertz/.ssh/id_rsa
     ProxyJump server02
     ForwardAgent yes
@@ -104,10 +105,21 @@ Host t2daq
     ForwardX11Trusted yes
     GSSAPIAuthentication no
 
-Host t2daqmini
+Host t2daq
     User swertz
-    Hostname 130.104.48.26
+    Hostname 192.168.1.103
     IdentityFile ~swertz/.ssh/id_rsa
+    ProxyJump crgw
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    GSSAPIAuthentication no
+
+Host t2dcs
+    User swertz
+    Hostname 192.168.1.105
+    IdentityFile ~swertz/.ssh/id_rsa
+    ProxyJump crgw
     ForwardAgent yes
     ForwardX11 yes
     ForwardX11Trusted yes
