@@ -26,3 +26,6 @@ function ktmux() {
 
 alias py3="scl enable rh-python36 zsh"
 alias g7="scl enable devtoolset-7 zsh"
+
+# fix slow tab completion
+zstyle ':completion:*' path-completion false
