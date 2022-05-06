@@ -57,7 +57,7 @@ Host *.psi.ch psi
 ## UCL ##
 
 Host cp3-git.irmp.ucl.ac.be
-  ProxyCommand ssh swertz@130.104.48.172 nc %h %p 2> /dev/null
+    ProxyJump server02
 
 Host *ucl.ac.be
   	User swertz
