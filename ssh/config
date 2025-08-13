@@ -34,9 +34,18 @@ Host lx*.cern.ch lxplus
   	GSSAPITrustDns yes
     PubkeyAuthentication no
 ## trusted X11 (for ROOT GUI) and ssh-agent forwarding
-  	ForwardAgent yes
-  	ForwardX11 yes
-  	ForwardX11Trusted yes
+      #ForwardAgent yes
+      #ForwardX11 yes
+      #ForwardX11Trusted yes
+
+Host vocms0600.cern.ch
+    User cnaodbot
+    #ForwardX11 yes
+    #ForwardX11Trusted yes
+    #ForwardAgent yes
+    #ProxyCommand ssh -vvv lxplus nc %h %p
+    ProxyJump lxplus
+
 
 ## PSI ##
 
